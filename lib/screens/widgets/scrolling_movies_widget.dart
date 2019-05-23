@@ -35,7 +35,7 @@ class _ScrollingMoviesState extends State<ScrollingMovies> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: Text(widget.title,
                   style: widget.themeData.textTheme.headline),
             ),

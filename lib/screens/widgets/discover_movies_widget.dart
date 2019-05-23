@@ -36,7 +36,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child:
               Text('Discover', style: widget.themeData.textTheme.headline),
             ),

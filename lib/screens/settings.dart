@@ -10,7 +10,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  int option;
+
   final List<Color> colors = [Colors.white, Color(0xff242248), Colors.black];
   final List<Color> borders = [Colors.black, Colors.white, Colors.white];
   final List<String> themes = ['Light', 'Dark', 'Amoled'];
@@ -59,34 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: CircleAvatar(
-                  backgroundColor: state.themeData.accentColor,
-                  radius: 40,
-                  child: Icon(
-                    Icons.person_outline,
-                    size: 40,
-                    color: state.themeData.primaryColor,
-                  )),
-            ),
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => LoginScreen(
-                          themeData: state.themeData,
-                        )));
-              },
-              child: Text(
-                'Log In / Sign Up',
-                style: state.themeData.textTheme.body2,
-              ),
-            ),
-
-          ],
+          children: _buildLoginSignUpWidgetArray(state),
         ),
       ),
     ),
@@ -173,5 +146,35 @@ class _SettingsPageState extends State<SettingsPage> {
       );
     },
   );
-  
+
+  _buildLoginSignUpWidgetArray(ChangeThemeState state) => <Widget>[
+    Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: CircleAvatar(
+          backgroundColor: state.themeData.accentColor,
+          radius: 40,
+          child: Icon(
+            Icons.person_outline,
+            size: 40,
+            color: state.themeData.primaryColor,
+          )),
+    ),
+    FlatButton(
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LoginScreen(
+                  themeData: state.themeData,
+                )));
+      },
+      child: Text(
+        'Log In / Sign Up',
+        style: state.themeData.textTheme.body2,
+      ),
+    ),
+  ];
+
 }
+
+

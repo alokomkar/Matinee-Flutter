@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/bloc/change_theme_bloc.dart';
 import 'package:movies/bloc/change_theme_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/screens/login.dart';
 
 class SettingsPage extends StatefulWidget {

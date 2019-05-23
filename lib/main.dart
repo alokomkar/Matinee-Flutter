@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/api/endpoints.dart';
+import 'package:movies/api/function.dart';
 import 'package:movies/bloc/change_theme_bloc.dart';
 import 'package:movies/bloc/change_theme_state.dart';
-import 'package:movies/modal_class/function.dart';
 import 'package:movies/modal_class/genres.dart';
 import 'package:movies/modal_class/movie.dart';
 import 'package:movies/screens/movie_detail.dart';
 import 'package:movies/screens/search_view.dart';
 import 'package:movies/screens/settings.dart';
-import 'package:movies/screens/widgets.dart';
+import 'package:movies/screens/widgets/discover_movies_widget.dart';
+import 'package:movies/screens/widgets/scrolling_movies_widget.dart';
 
 void main() => runApp(MyApp());
 

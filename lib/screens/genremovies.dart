@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/api/endpoints.dart';
 import 'package:movies/modal_class/genres.dart';
-import 'package:movies/screens/widgets.dart';
+import 'package:movies/screens/widgets/particular_genre_movies_widget.dart';
 
 class GenreMovies extends StatelessWidget {
   final ThemeData themeData;

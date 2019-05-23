@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:movies/api/endpoints.dart';
 import 'package:movies/modal_class/credits.dart';

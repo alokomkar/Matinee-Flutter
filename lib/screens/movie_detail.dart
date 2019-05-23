@@ -5,7 +5,8 @@ import 'package:movies/constants/api_constants.dart';
 import 'package:movies/modal_class/credits.dart';
 import 'package:movies/modal_class/genres.dart';
 import 'package:movies/modal_class/movie.dart';
-import 'package:movies/screens/widgets.dart';
+import 'package:movies/screens/widgets/genre_list_widget.dart';
+import 'package:movies/screens/widgets/scrolling_artists_widget.dart';
 
 class MovieDetailPage extends StatefulWidget {
   final Movie movie;

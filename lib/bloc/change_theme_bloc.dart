@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'change_theme_event.dart';
 import 'change_theme_state.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ChangeThemeBloc extends Bloc<ChangeThemeEvent, ChangeThemeState> {
 

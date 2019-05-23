@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/modal_class/genres.dart';
 import 'package:movies/modal_class/movie.dart';
-import 'package:movies/screens/widgets.dart';
+import 'package:movies/screens/widgets/search_movie_widget.dart';
 
 class MovieSearch extends SearchDelegate<Movie> {
   final ThemeData themeData;

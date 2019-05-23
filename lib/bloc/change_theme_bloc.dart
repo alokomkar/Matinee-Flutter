@@ -4,10 +4,12 @@ import 'change_theme_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ChangeThemeBloc extends Bloc<ChangeThemeEvent, ChangeThemeState> {
+
   void onLightThemeChange() => dispatch(LightTheme());
   void onDarkThemeChange() => dispatch(DarkTheme());
   void onAmoledThemeChange() => dispatch(AmoledTheme());
   void onDecideThemeChange() => dispatch(DecideTheme());
+
   @override
   ChangeThemeState get initialState => ChangeThemeState.lightTheme();
 
@@ -15,40 +17,33 @@ class ChangeThemeBloc extends Bloc<ChangeThemeEvent, ChangeThemeState> {
   Stream<ChangeThemeState> mapEventToState(ChangeThemeEvent event) async* {
     if (event is DecideTheme) {
       final int optionValue = await getOption();
-      if (optionValue == 0) {
+      switch( optionValue ) {
+        case 0 : yield ChangeThemeState.lightTheme();
+        break;
+        case 1 : yield ChangeThemeState.darkTheme();
+        break;
+        case 2 : yield ChangeThemeState.amoledTheme();
+        break;
+      }
+    }
+
+    try {
+      if (event is LightTheme) {
         yield ChangeThemeState.lightTheme();
-      } else if (optionValue == 1) {
+          _saveOptionValue(0);
+      }
+      if (event is DarkTheme) {
         yield ChangeThemeState.darkTheme();
-      } else if (optionValue == 2) {
+          _saveOptionValue(1);
+      }
+      if (event is AmoledTheme) {
         yield ChangeThemeState.amoledTheme();
+          _saveOptionValue(2);
       }
-    }
-    if (event is LightTheme) {
-      yield ChangeThemeState.lightTheme();
-      try {
-        _saveOptionValue(0);
-      } catch (_) {
-        throw Exception("Could not persist change");
-      }
+    } catch (_) {
+      throw Exception("Could not persist change");
     }
 
-    if (event is DarkTheme) {
-      yield ChangeThemeState.darkTheme();
-      try {
-        _saveOptionValue(1);
-      } catch (_) {
-        throw Exception("Could not persist change");
-      }
-    }
-
-    if (event is AmoledTheme) {
-      yield ChangeThemeState.amoledTheme();
-      try {
-        _saveOptionValue(2);
-      } catch (_) {
-        throw Exception("Could not persist change");
-      }
-    }
   }
 
   Future<Null> _saveOptionValue(int optionValue) async {
